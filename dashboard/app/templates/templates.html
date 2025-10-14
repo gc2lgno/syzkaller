@@ -186,48 +186,48 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 					<thead class="table-primary">
 						<tr>
 							{{if $.ShowNamespace}}
-							<th scope="col"><a onclick="return sortTable(this, 'Kernel', textSort)" href="#">Kernel</a>
+							<th><a onclick="return sortTable(this, 'Kernel', textSort)" href="#">Kernel</a>
 							</th>
 							{{end}}
-							<th scope="col"><a onclick="return sortTable(this, 'Title', textSort)" href="#">Title</a>
+							<th><a onclick="return sortTable(this, 'Title', textSort)" href="#">Title</a>
 							</th>
-							<th scope="col" style="width: 55pt;">
+							<th style="width: 55pt;">
 								<a onclick="return sortTable(this, 'Rank 🛈', numSort)" href="#">Rank</a>
 								{{template "info_link"
 								"https://github.com/google/syzkaller/blob/master/pkg/report/README.md"}}
 							</th>
-							<th scope="col"><a onclick="return sortTable(this, 'Repro', reproSort)" href="#">Repro</a>
+							<th><a onclick="return sortTable(this, 'Repro', reproSort)" href="#">Repro</a>
 							</th>
-							<th scope="col"><a onclick="return sortTable(this, 'Cause bisect', textSort)" href="#">Cause
+							<th><a onclick="return sortTable(this, 'Cause bisect', textSort)" href="#">Cause
 									bisect</a></th>
-							<th scope="col"><a onclick="return sortTable(this, 'Fix bisect', textSort)" href="#">Fix
+							<th><a onclick="return sortTable(this, 'Fix bisect', textSort)" href="#">Fix
 									bisect</a></th>
-							<th scope="col"><a onclick="return sortTable(this, 'Count', numSort)" href="#">Count</a>
+							<th><a onclick="return sortTable(this, 'Count', numSort)" href="#">Count</a>
 							</th>
-							<th scope="col"><a onclick="return sortTable(this, 'Last', timeSort)" href="#">Last</a></th>
-							<th scope="col"><a onclick="return sortTable(this, 'Reported', timeSort)"
+							<th><a onclick="return sortTable(this, 'Last', timeSort)" href="#">Last</a></th>
+							<th><a onclick="return sortTable(this, 'Reported', timeSort)"
 									href="#">Reported</a></th>
 							{{if $.DispLastAct}}
-							<th scope="col"><a onclick="return sortTable(this, 'Last activity', timeSort, desc=true)"
+							<th><a onclick="return sortTable(this, 'Last activity', timeSort, desc=true)"
 									href="#">Last activity</a></th>
 							{{end}}
 							{{if $.DispDiscuss}}
-							<th scope="col" style="width: 100pt;"><a
+							<th style="width: 100pt;"><a
 									onclick="return sortTable(this, 'Discussions', textSort)" href="#">Discussions</a>
 							</th>
 							{{end}}
 							{{if $.ShowPatched}}
-							<th scope="col"><a onclick="return sortTable(this, 'Patched', patchedSort)"
+							<th><a onclick="return sortTable(this, 'Patched', patchedSort)"
 									href="#">Patched</a></th>
 							{{end}}
 							{{if $.ShowStatus}}
-							<th scope="col"><a onclick="return sortTable(this, 'Status', textSort)" href="#">Status</a>
+							<th><a onclick="return sortTable(this, 'Status', textSort)" href="#">Status</a>
 							</th>
 							{{end}}
 							{{if $.ShowPatch}}
-							<th scope="col"><a onclick="return sortTable(this, 'Closed', timeSort)" href="#">Closed</a>
+							<th><a onclick="return sortTable(this, 'Closed', timeSort)" href="#">Closed</a>
 							</th>
-							<th scope="col"><a onclick="return sortTable(this, 'Patch', textSort)" href="#">Patch</a>
+							<th><a onclick="return sortTable(this, 'Patch', textSort)" href="#">Patch</a>
 							</th>
 							{{end}}
 						</tr>
@@ -236,7 +236,7 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 						{{range $b := .Bugs}}
 						<tr>
 							{{if $.ShowNamespace}}<td>{{$b.Namespace}}</td>{{end}}
-							<td class="text-nowrap text-truncate">
+							<td class="text-break">
 								<a href="{{$b.Link}}">{{$b.Title}}</a>
 								{{- range $b.Labels}}
 								<a href="{{.Link}}" class="btn btn-sm btn-primary">
@@ -244,15 +244,15 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 								</a>
 								{{- end}}
 							</td>
-							<td scope="col" class="font-monospace text-end">{{$b.ImpactScore}}</td>
-							<td scope="col" class="font-monospace text-end">{{formatReproLevel $b.ReproLevel}}</td>
-							<td scope="col" class="font-monospace text-end">{{print $b.BisectCause}}</td>
-							<td scope="col" class="font-monospace text-end">{{print $b.BisectFix}}</td>
-							<td scope="col" class="font-monospace text-end "><span
+							<td class="font-monospace text-end">{{$b.ImpactScore}}</td>
+							<td class="font-monospace text-end">{{formatReproLevel $b.ReproLevel}}</td>
+							<td class="font-monospace text-end">{{print $b.BisectCause}}</td>
+							<td class="font-monospace text-end">{{print $b.BisectFix}}</td>
+							<td class="font-monospace text-end "><span
 									class="{{if $b.NumCrashesBad}}badge text-bg-danger{{end}}">{{$b.NumCrashes}}</span>
 							</td>
-							<td scope="col" class="font-monospace text-end">{{formatLateness $.Now $b.LastTime}}</td>
-							<td scope="col" class="font-monospace text-end">
+							<td class="font-monospace text-end">{{formatLateness $.Now $b.LastTime}}</td>
+							<td class="font-monospace text-end">
 								{{if $b.ExternalLink}}
 								<a href="{{$b.ExternalLink}}">{{formatLateness $.Now $b.ReportedTime}}</a>
 								{{else}}
@@ -260,12 +260,12 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 								{{end}}
 							</td>
 							{{if $.DispLastAct}}
-							<td scope="col" class="font-monospace text-end">{{formatLateness $.Now $b.LastActivity}}
+							<td class="font-monospace text-end">{{formatLateness $.Now $b.LastActivity}}
 							</td>
 							{{end}}
 							{{if $.DispDiscuss}}
 							{{$d := $b.Discussions}}
-							<td scope="col" class="text-start" sort-value="{{formatLateness $.Now $d.LastMessage}}">
+							<td class="text-start" sort-value="{{formatLateness $.Now $d.LastMessage}}">
 								{{- if not $d.LastPatchMessage.IsZero -}}
 								<b>PATCH</b> [{{formatLateness $.Now $d.LastPatchMessage}}]
 								{{- else if $d.ExternalMessages -}}
@@ -275,12 +275,12 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 							</td>
 							{{end}}
 							{{if $.ShowPatched}}
-							<td scope="col" class="text-center" {{if
+							<td class="text-center" {{if
 								$b.Commits}}title="{{with $com := index $b.Commits 0}}{{$com.Title}}{{end}}" {{end}}>
 								{{len $b.PatchedOn}}/{{$b.NumManagers}}</td>
 							{{end}}
 							{{if $.ShowStatus}}
-							<td scope="col" class="status">
+							<td class="status">
 								{{if $b.ExternalLink}}
 								<a href="{{$b.ExternalLink}}">{{$b.Status}}</a>
 								{{else}}
@@ -289,8 +289,8 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 							</td>
 							{{end}}
 							{{if $.ShowPatch}}
-							<td scope="col" class="font-monospace text-end">{{formatLateness $.Now $b.ClosedTime}}</td>
-							<td scope="col" class="commit_list">{{template "fix_commits" $b.Commits}}</td>
+							<td class="font-monospace text-end">{{formatLateness $.Now $b.ClosedTime}}</td>
+							<td class="commit_list">{{template "fix_commits" $b.Commits}}</td>
 							{{end}}
 						</tr>
 						{{end}}
