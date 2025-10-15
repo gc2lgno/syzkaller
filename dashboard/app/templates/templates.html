@@ -186,44 +186,41 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 					<thead class="table-primary">
 						<tr>
 							{{if $.ShowNamespace}}
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Kernel', textSort)" href="#">Kernel</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Kernel', textSort)" class="text-decoration-none" href="#">Kernel</a>
 							</th>
 							{{end}}
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Title', textSort)" href="#">Title</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Title', textSort)" class="text-decoration-none" href="#">Title</a>
 							</th>
 							<th scope="col" class="text-center align-middle" style="width: 55pt;">
-								<a onclick="return sortTable(this, 'Rank 🛈', numSort)" href="#">Rank</a>
+								<a onclick="return sortTable(this, 'Rank 🛈', numSort)" class="text-decoration-none" href="#">Rank</a>
 								{{template "info_link"
 								"https://github.com/google/syzkaller/blob/master/pkg/report/README.md"}}
 							</th>
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Repro', reproSort)" href="#">Repro</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Repro', reproSort)" class="text-decoration-none" href="#">Repro</a>
 							</th>
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Cause bisect', textSort)" href="#">Cause bisect</a></th>
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Fix bisect', textSort)" href="#">Fix bisect</a></th>
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Count', numSort)" href="#">Count</a></th>
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Last', timeSort)" href="#">Last</a></th>
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Reported', timeSort)" href="#">Reported</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Cause bisect', textSort)" class="text-decoration-none" href="#">Cause bisect</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Fix bisect', textSort)" class="text-decoration-none" href="#">Fix bisect</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Count', numSort)" class="text-decoration-none" href="#">Count</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Last', timeSort)" class="text-decoration-none" href="#">Last</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Reported', timeSort)" class="text-decoration-none" href="#">Reported</a></th>
 							{{if $.DispLastAct}}
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Last activity', timeSort, desc=true)"
-									href="#">Last activity</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Last activity', timeSort, desc=true)" class="text-decoration-none" href="#">Last activity</a></th>
 							{{end}}
 							{{if $.DispDiscuss}}
-							<th scope="col" class="text-center align-middle" style="width: 100pt;"><a
-									onclick="return sortTable(this, 'Discussions', textSort)" href="#">Discussions</a>
+							<th scope="col" class="text-center align-middle" style="width: 100pt;"><a onclick="return sortTable(this, 'Discussions', textSort)" class="text-decoration-none" href="#">Discussions</a>
 							</th>
 							{{end}}
 							{{if $.ShowPatched}}
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Patched', patchedSort)"
-									href="#">Patched</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Patched', patchedSort)" class="text-decoration-none" href="#">Patched</a></th>
 							{{end}}
 							{{if $.ShowStatus}}
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Status', textSort)" href="#">Status</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Status', textSort)" class="text-decoration-none" href="#">Status</a>
 							</th>
 							{{end}}
 							{{if $.ShowPatch}}
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Closed', timeSort)" href="#">Closed</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Closed', timeSort)" class="text-decoration-none" href="#">Closed</a>
 							</th>
-							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Patch', textSort)" href="#">Patch</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Patch', textSort)" class="text-decoration-none" href="#">Patch</a>
 							</th>
 							{{end}}
 						</tr>
