@@ -248,9 +248,7 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 							<td class="font-monospace text-end">{{formatReproLevel $b.ReproLevel}}</td>
 							<td class="font-monospace text-end">{{print $b.BisectCause}}</td>
 							<td class="font-monospace text-end">{{print $b.BisectFix}}</td>
-							<td class="font-monospace text-end "><span
-									class="{{if $b.NumCrashesBad}}badge text-bg-danger{{end}}">{{$b.NumCrashes}}</span>
-							</td>
+							<td class="font-monospace text-end text-danger {{if $b.NumCrashesBad}} text-danger{{end}} "> {{$b.NumCrashes}} </td>
 							<td class="font-monospace text-end">{{formatLateness $.Now $b.LastTime}}</td>
 							<td class="font-monospace text-end">
 								{{if $b.ExternalLink}}
@@ -539,6 +537,7 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 			<i>* <s>Struck through</s> repros no longer work on HEAD.</i>
 			{{end}}
 			{{end}}
+<!-- End Third Row -->
 
 <!-- Fourth Row and table -->
 			{{/* List of jobs, invoked with *uiJobList */}}
