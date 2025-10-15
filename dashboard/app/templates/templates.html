@@ -186,48 +186,44 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 					<thead class="table-primary">
 						<tr>
 							{{if $.ShowNamespace}}
-							<th><a onclick="return sortTable(this, 'Kernel', textSort)" href="#">Kernel</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Kernel', textSort)" href="#">Kernel</a>
 							</th>
 							{{end}}
-							<th><a onclick="return sortTable(this, 'Title', textSort)" href="#">Title</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Title', textSort)" href="#">Title</a>
 							</th>
-							<th style="width: 55pt;">
+							<th scope="col" class="text-center align-middle" style="width: 55pt;">
 								<a onclick="return sortTable(this, 'Rank 🛈', numSort)" href="#">Rank</a>
 								{{template "info_link"
 								"https://github.com/google/syzkaller/blob/master/pkg/report/README.md"}}
 							</th>
-							<th><a onclick="return sortTable(this, 'Repro', reproSort)" href="#">Repro</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Repro', reproSort)" href="#">Repro</a>
 							</th>
-							<th><a onclick="return sortTable(this, 'Cause bisect', textSort)" href="#">Cause
-									bisect</a></th>
-							<th><a onclick="return sortTable(this, 'Fix bisect', textSort)" href="#">Fix
-									bisect</a></th>
-							<th><a onclick="return sortTable(this, 'Count', numSort)" href="#">Count</a>
-							</th>
-							<th><a onclick="return sortTable(this, 'Last', timeSort)" href="#">Last</a></th>
-							<th><a onclick="return sortTable(this, 'Reported', timeSort)"
-									href="#">Reported</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Cause bisect', textSort)" href="#">Cause bisect</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Fix bisect', textSort)" href="#">Fix bisect</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Count', numSort)" href="#">Count</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Last', timeSort)" href="#">Last</a></th>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Reported', timeSort)" href="#">Reported</a></th>
 							{{if $.DispLastAct}}
-							<th><a onclick="return sortTable(this, 'Last activity', timeSort, desc=true)"
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Last activity', timeSort, desc=true)"
 									href="#">Last activity</a></th>
 							{{end}}
 							{{if $.DispDiscuss}}
-							<th style="width: 100pt;"><a
+							<th scope="col" class="text-center align-middle" style="width: 100pt;"><a
 									onclick="return sortTable(this, 'Discussions', textSort)" href="#">Discussions</a>
 							</th>
 							{{end}}
 							{{if $.ShowPatched}}
-							<th><a onclick="return sortTable(this, 'Patched', patchedSort)"
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Patched', patchedSort)"
 									href="#">Patched</a></th>
 							{{end}}
 							{{if $.ShowStatus}}
-							<th><a onclick="return sortTable(this, 'Status', textSort)" href="#">Status</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Status', textSort)" href="#">Status</a>
 							</th>
 							{{end}}
 							{{if $.ShowPatch}}
-							<th><a onclick="return sortTable(this, 'Closed', timeSort)" href="#">Closed</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Closed', timeSort)" href="#">Closed</a>
 							</th>
-							<th><a onclick="return sortTable(this, 'Patch', textSort)" href="#">Patch</a>
+							<th scope="col" class="text-center align-middle"><a onclick="return sortTable(this, 'Patch', textSort)" href="#">Patch</a>
 							</th>
 							{{end}}
 						</tr>
@@ -248,7 +244,7 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 							<td class="font-monospace text-end">{{formatReproLevel $b.ReproLevel}}</td>
 							<td class="font-monospace text-end">{{print $b.BisectCause}}</td>
 							<td class="font-monospace text-end">{{print $b.BisectFix}}</td>
-							<td class="font-monospace text-end text-danger {{if $b.NumCrashesBad}} text-danger{{end}} "> {{$b.NumCrashes}} </td>
+							<td class="font-monospace text-end {{if $b.NumCrashesBad}} text-danger{{end}} "> {{$b.NumCrashes}} </td>
 							<td class="font-monospace text-end">{{formatLateness $.Now $b.LastTime}}</td>
 							<td class="font-monospace text-end">
 								{{if $b.ExternalLink}}
@@ -297,7 +293,7 @@ Use of this source code is governed by Apache 2 LICENSE that can be found in the
 	{{end}}
 	{{end}}
 	{{end}}
-	<!-- Second Row and table -->
+	<!-- Upstream > First Table -->
 	
 				{{/* List of managers, invoked with []*uiManager */}}
 				{{define "manager_list"}}
