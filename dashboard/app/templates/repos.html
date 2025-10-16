@@ -13,19 +13,28 @@ The list of polled trees.
 </head>
 <body>
 	{{template "header" .Header}}
-
-	<table class="list_table">
-		<caption>The fixing commit must reach the following trees (<a href="https://github.com/google/syzkaller/blob/master/docs/syzbot.md#bug-status-tracking">more info</a>):</caption>
-		<tr>
-			<th>URL</th>
-			<th>Branch</th>
-		</tr>
-		{{range $repo := .Repos}}
-		<tr>
-			<td>{{$repo.URL}}</td>
-			<td>{{$repo.Branch}}</td>
-		</tr>
-		{{end}}
-	</table>
+	<main style="margin-top: 80px;">
+		<div class="container row justify-content-start" style="max-width: fit-content;">
+			<div class="col col-md-12 mt-3">
+				<div class="table">	
+					<table class="table table-bordered table-striped table-hover small caption-top">
+						<caption>
+							The fixing commit must reach the following trees (<a href="https://github.com/google/syzkaller/blob/master/docs/syzbot.md#bug-status-tracking" class="btn btn-outline-primary btn-sm">more info</a>):
+						</caption>
+						<thead class="table-light">
+							<th>URL</th>
+							<th>Branch</th>
+						</thead >
+						{{range $repo := .Repos}}
+						<tr>
+							<td scope="col" class="no-wrap-overflow-550">{{$repo.URL}}</td>
+							<td scope="col">{{$repo.Branch}}</td>
+						</tr>
+						{{end}}
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 </html>
