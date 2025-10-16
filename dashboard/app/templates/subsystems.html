@@ -13,38 +13,48 @@ The list of polled trees.
 </head>
 <body>
 	{{template "header" .Header}}
-	<h2>The list of subsystems</h2><br>
-	<table class="list_table">
-		<thead>
-			<tr>
-				<th><a onclick="return sortTable(this, 'Name', textSort)" href="#">Name</a></th>
-				<th>List(s)</th>
-				<th><a onclick="return sortTable(this, 'Open', numSort)" href="#">Open</a></th>
-				<th><a onclick="return sortTable(this, 'Fixed', numSort)" href="#">Fixed</a></th>
-			</tr>
-		</thead>
-		<tbody>
-		{{range $item := .List}}
-		<tr>
-			<td>{{link $item.Open.Link $item.Name}}</td>
-			<td>{{$item.Lists}}</td>
-			<td>{{link $item.Open.Link (printf "%d" $item.Open.Count)}}</td>
-			<td>{{link $item.Fixed.Link (printf "%d" $item.Fixed.Count)}}</td>
-		</tr>
-		{{end}}
-		</tbody>
-		<tfoot>
-		<tr>
-			<td><b>{{link .Unclassified.Open.Link "unclassified"}}</b></td>
-			<td>-</td>
-			<td>{{link .Unclassified.Open.Link (printf "%d" .Unclassified.Open.Count)}}</td>
-			<td>{{link .Unclassified.Fixed.Link (printf "%d" .Unclassified.Fixed.Count)}}</td>
-		</tr>
-		</tfoot>
-	</table>
-	<i>(*) Note that the numbers below do not represent the latest data. They are updated once an hour.</i><br><br>
-	{{if .SomeHidden}}
-		Empty subsystems have been hidden from the list. {{link .ShowAllURL "Show all"}}. <br>
-	{{end}}
+	<main style="margin-top: 80px;">
+		<div class="container row justify-content-start" style="max-width: fit-content;">
+			<div class="col col-md-12 mt-3">
+				<div class="table">
+					<h2>The list of subsystems</h2><br>
+					<table class="table table-bordered table-striped table-hover small">
+						<thead class="table-primary">
+							<tr>
+								<th scope="col" class="text-center align-middle text-decoration-none"><a onclick="return sortTable(this, 'Name', textSort)" href="#">Name</a></th>
+								<th scope="col" class="text-center align-middle text-decoration-none">List(s)</th>
+								<th scope="col" class="text-center align-middle text-decoration-none"><a onclick="return sortTable(this, 'Open', numSort)" href="#">Open</a></th>
+								<th scope="col" class="text-center align-middle text-decoration-none"><a onclick="return sortTable(this, 'Fixed', numSort)" href="#">Fixed</a></th>
+							</tr>
+						</thead>
+						<tbody>
+						{{range $item := .List}}
+						<tr>
+							<td class="text-start">{{link $item.Open.Link $item.Name}}</td>
+							<td class="text-start">{{$item.Lists}}</td>
+							<td class="text-end font-monospace">{{link $item.Open.Link (printf "%d" $item.Open.Count)}}</td>
+							<td class="text-end font-monospace">{{link $item.Fixed.Link (printf "%d" $item.Fixed.Count)}}</td>
+						</tr>
+						{{end}}
+						</tbody>
+						<tfoot>
+						<tr>
+							<td class="text-start fw-bold">{{link .Unclassified.Open.Link "unclassified"}}</td>
+							<td>-</td>
+							<td class="text-end font-monospace">{{link .Unclassified.Open.Link (printf "%d" .Unclassified.Open.Count)}}</td>
+							<td class="text-end font-monospace">{{link .Unclassified.Fixed.Link (printf "%d" .Unclassified.Fixed.Count)}}</td>
+						</tr>
+						</tfoot>
+					</table>
+					<caption class="pt-2 text-start">
+						<i>(*) Note that the numbers below do not represent the latest data. They are updated once an hour.</i><br><br>
+						{{if .SomeHidden}}
+							Empty subsystems have been hidden from the list. {{link .ShowAllURL "Show all"}}. <br>
+						{{end}}
+					</caption>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 </html>
