@@ -47,16 +47,20 @@ Manager statistics graphs.
 </head>
 <body>
 	{{template "header" .Header}}
-	<div class="page">
-		<div id="graph_div" class="main-content"></div>
-		<aside>
-			<form>
+	<main style="margin-top: 80px;">
+		<div class="container row">
+			<div class="col-md-4">
+				<form>
 				{{template "input-checkbox" .Managers}}
 				{{template "input-checkbox" .Metrics}}
 				{{template "input-slider" .Months}}
 				<input type="submit" value="Refresh"/>
 			</form>
-		</aside>
-	</div>
+			</div>
+			<div class="col-md-8">
+				<div id="graph_div" class="main-content"></div>		
+			</div>
+		</div>
+	</main>
 </body>
 </html>
