@@ -7,3 +7,7 @@
     text-overflow: ellipsis;  /* Shows '...' for the hidden content */
     max-width: 550px;         /* Required: The element needs a fixed width to know where to truncate */
 }
+
+#graph_div {
+	height: 85vh;
+}
