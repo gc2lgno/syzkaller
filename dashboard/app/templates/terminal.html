@@ -20,8 +20,19 @@ Terminal bugs page (fixed, invalid).
 Out of <b>{{.Total}}</b> bugs, <b>{{.AutoObsoleted}}</b> were automatically obsoleted (<b>{{.ReproObsoleted}}</b> due to revoked reproducers), <b>{{.UserObsoleted}}</b> were invalidated by users.<br />
 		{{end}}
 	{{end}}
-
-	{{template "bug_filter" $.BugFilter}}
-	{{template "bug_list" .Bugs}}
+	<div class="container row justify-content-start" style="max-width: fit-content;">
+		<div class="col col-md-12 mt-3">
+			<div class="table">
+				{{template "bug_filter" $.BugFilter}}
+			</div>
+		</div>
+	</div>
+	<div class="container row justify-content-start" style="max-width: fit-content;">
+		<div class="col col-md-12 mt-3">
+			<div class="table">
+				{{template "bug_list" .Bugs}}
+			</div>
+		</div>
+	</div>
 </body>
 </html>
