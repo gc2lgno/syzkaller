@@ -14,10 +14,11 @@ Terminal bugs page (fixed, invalid).
 <body>
 	{{template "header" .Header}}
 
+<main style="margin-top: 80px;">
 
 	{{if .Stats}}
 		{{with .Stats}}
-Out of <b>{{.Total}}</b> bugs, <b>{{.AutoObsoleted}}</b> were automatically obsoleted (<b>{{.ReproObsoleted}}</b> due to revoked reproducers), <b>{{.UserObsoleted}}</b> were invalidated by users.<br />
+	Out of <b>{{.Total}}</b> bugs, <b>{{.AutoObsoleted}}</b> were automatically obsoleted (<b>{{.ReproObsoleted}}</b> due to revoked reproducers), <b>{{.UserObsoleted}}</b> were invalidated by users.<br />
 		{{end}}
 	{{end}}
 	<div class="container row justify-content-start" style="max-width: fit-content;">
@@ -34,5 +35,6 @@ Out of <b>{{.Total}}</b> bugs, <b>{{.AutoObsoleted}}</b> were automatically obso
 			</div>
 		</div>
 	</div>
+</main>
 </body>
 </html>
